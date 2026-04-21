@@ -1,3 +1,11 @@
-export default function HelloWorld() {
-  return <h1>Hello, World! Welcome to my React App.</h1>;
+import React, { Component } from 'react';
+
+class HelloWorld extends Component {
+    render() {
+        return (
+            <h1>Hello World!</h1>
+        );
+    }
 }
+
+export default HelloWorld;
