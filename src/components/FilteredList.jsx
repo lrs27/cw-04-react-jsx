@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import List from "./List.jsx";
+import Dropdown from "react-bootstrap/Dropdown";
 
 class FilteredList extends Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class FilteredList extends Component {
 
     this.state = {
       search: "",
-      type: "All"   
+      type: "All"
     };
   }
 
@@ -15,8 +16,8 @@ class FilteredList extends Component {
     this.setState({ search: event.target.value.toLowerCase() });
   };
 
-  onFilter = (event) => {
-    this.setState({ type: event.target.value });   
+  onFilter = (eventKey) => {
+    this.setState({ type: eventKey });
   };
 
   filterItem = (item) => {
@@ -26,7 +27,7 @@ class FilteredList extends Component {
     const matchesType =
       this.state.type === "All" || item.type === this.state.type;
 
-    return matchesSearch && matchesType;   
+    return matchesSearch && matchesType;
   };
 
   render() {
@@ -43,12 +44,18 @@ class FilteredList extends Component {
           onChange={this.onSearch}
         />
 
-        
-        <select onChange={this.onFilter} value={this.state.type}>
-          <option value="All">All</option>
-          <option value="Fruit">Fruit</option>
-          <option value="Vegetable">Vegetables</option>
-        </select>
+        {/* Bootstrap Dropdown */}
+        <Dropdown onSelect={this.onFilter}>
+          <Dropdown.Toggle variant="primary">
+            Filter
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item eventKey="All">All</Dropdown.Item>
+            <Dropdown.Item eventKey="Fruit">Fruit</Dropdown.Item>
+            <Dropdown.Item eventKey="Vegetable">Vegetables</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
 
         <List items={filteredItems} />
       </div>
