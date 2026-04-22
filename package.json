@@ -9,12 +9,13 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "react": "^19.2.5",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.5"
   },
   "devDependencies": {

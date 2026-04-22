@@ -1,61 +1,59 @@
-import React, { Component } from 'react';
-import List from './List';
-import { DropdownButton, MenuItem } from 'react-bootstrap';
+import React, { Component } from "react";
+import List from "./List.jsx";
 
 class FilteredList extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            search: "",
-            type: "All"
-        };
-    }
+    this.state = {
+      search: "",
+      type: "All"   
+    };
+  }
 
-    onSearch = (event) => {
-        this.setState({ search: event.target.value.toLowerCase() });
-    }
+  onSearch = (event) => {
+    this.setState({ search: event.target.value.toLowerCase() });
+  };
 
-    onFilter = (eventKey) => {
-        this.setState({ type: eventKey });
-    }
+  onFilter = (event) => {
+    this.setState({ type: event.target.value });   
+  };
 
-    filterItem = (item) => {
-        const matchesSearch =
-            item.name.toLowerCase().search(this.state.search) !== -1;
+  filterItem = (item) => {
+    const matchesSearch =
+      item.name.toLowerCase().search(this.state.search) !== -1;
 
-        const matchesType =
-            this.state.type === "All" || item.type === this.state.type;
+    const matchesType =
+      this.state.type === "All" || item.type === this.state.type;
 
-        return matchesSearch && matchesType;
-    }
+    return matchesSearch && matchesType;   
+  };
 
-    render() {
-        const filteredItems = this.props.items.filter(this.filterItem);
+  render() {
+    const filteredItems = this.props.items.filter(this.filterItem);
 
-        return (
-            <div>
-                <h2>Filtered List</h2>
+    return (
+      <div>
+        <h2>Filtered List</h2>
 
-                {/* Search Input */}
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    onChange={this.onSearch}
-                />
+        {/* Search box */}
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={this.onSearch}
+        />
 
-                {/* Dropdown Filter */}
-                <DropdownButton title="Filter" onSelect={this.onFilter}>
-                    <MenuItem eventKey="All">All</MenuItem>
-                    <MenuItem eventKey="Fruit">Fruit</MenuItem>
-                    <MenuItem eventKey="Vegetable">Vegetables</MenuItem>
-                </DropdownButton>
+        
+        <select onChange={this.onFilter} value={this.state.type}>
+          <option value="All">All</option>
+          <option value="Fruit">Fruit</option>
+          <option value="Vegetable">Vegetables</option>
+        </select>
 
-                {/* Render Filtered List */}
-                <List items={filteredItems} />
-            </div>
-        );
-    }
+        <List items={filteredItems} />
+      </div>
+    );
+  }
 }
 
 export default FilteredList;

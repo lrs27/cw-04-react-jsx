@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/cw-04-react-jsx/'  
+  base: '/cw-04-react-jsx/'
 });

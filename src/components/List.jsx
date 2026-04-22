@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class List extends Component {
-    render() {
-        return (
-            <ul>
-                {this.props.items.map((item, index) => (
-                    <li key={index}>
-                        {item.name} — <em>{item.type}</em>
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+function List({ items }) {
+  return (
+    <ul>
+      {items.map((item, i) => (
+        <li key={i}>{item.name}</li>
+      ))}
+    </ul>
+  );
 }
 
 export default List;
