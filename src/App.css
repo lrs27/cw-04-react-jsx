@@ -1,4 +1,148 @@
+/* Global layout */
 .App {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Inter", Arial, sans-serif;
+  color: #222;
+}
+
+/* Headings */
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Counter container */
+.counter {
+    text-align: center;
+    margin: 25px 0;
+}
+
+/* Increment button */
+.increment-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.increment-btn:hover {
+    background-color: #3e8e41;
+    transform: translateY(-2px);
+}
+
+
+.increment-btn:active {
+    transform: translateY(0);
+}
+
+/* Search input */
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Dropdown container */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.dropdown-btn {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 150px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.dropdown-btn:hover {
+  background-color: #357ac9;
+  
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 150px;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-btn.open + .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown menu items */
+.dropdown-menu button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.dropdown-menu button:hover {
+  background: #f0f0f0;
+}
+
+
+.dropdown {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+
+.dropdown-toggle {
+    margin: 0 auto;
+}
+
+
+.dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center;
+}
+
+/* List styling */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f7f7f7;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
 }
